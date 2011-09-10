@@ -31,5 +31,11 @@ public class QtcCalculatorTest extends TestCase {
 		assertEquals(400, QtcCalculator.calculate(1000, 400, QtcFormula.SAGIE));
 		assertEquals(448, QtcCalculator.calculate(863, 427, QtcFormula.SAGIE));
 	}
-
+	
+	public void testCalculateHodges() {
+		assertEquals(0, QtcCalculator.calculate(0, 0, QtcFormula.HODGES));
+		assertEquals(400, QtcCalculator.calculate(1000, 400, QtcFormula.HODGES));
+		assertEquals(444, QtcCalculator.calculate(863, 427, QtcFormula.HODGES));		
+	}
+	
 }
