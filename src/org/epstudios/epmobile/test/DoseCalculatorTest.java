@@ -46,6 +46,13 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(d.actualWeeklyDose(doses2), 7.5);
 	}
 	
+	public void testHalfTabletPerDay() {
+		DoseCalculator d = new DoseCalculator(5.0, 17.5);
+		double doses[] = d.weeklyDoses();
+		for (int i = 0; i < doses.length; ++i)
+			assertEquals(doses[i], 0.5);
+	}
+	
 
 	
 }
