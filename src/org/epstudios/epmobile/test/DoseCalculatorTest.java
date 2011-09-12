@@ -22,14 +22,6 @@ public class DoseCalculatorTest extends TestCase {
 		double[] result = d.weeklyDoses();
 		for (int i = 0; i < result.length; ++i)
 			assertEquals(1.0, result[i]);
-		d.setWeeklyDose(70);
-		result = d.weeklyDoses();
-		for (int i = 0; i < result.length; ++i)
-			assertEquals(2.0, result[i]);
-		d.setTabletDose(2.5);
-		result = d.weeklyDoses();
-		for (int i = 0; i < result.length; ++i)
-			assertEquals(4.0, result[i]);
 	}
 	
 	public void testTabletDoseTooHigh() {
@@ -38,7 +30,7 @@ public class DoseCalculatorTest extends TestCase {
 		assertTrue(resultIsZero(result));
 	}
 	
-	public void testActualWeelyDose() {
+	public void testActualWeeklyDose() {
 		DoseCalculator d = new DoseCalculator(2.5, 30);
 		double doses[] = {1, 2, 2, 3.5, 7 };
 		assertEquals(d.actualWeeklyDose(doses), 38.75);
@@ -46,13 +38,12 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(d.actualWeeklyDose(doses2), 7.5);
 	}
 	
-	public void testHalfTabletPerDay() {
-		DoseCalculator d = new DoseCalculator(5.0, 17.5);
-		double doses[] = d.weeklyDoses();
-		for (int i = 0; i < doses.length; ++i)
-			assertEquals(doses[i], 0.5);
+	public void testRealDoses() {
+		DoseCalculator d = new DoseCalculator(5.0, 40.0);
+		double result[] = d.weeklyDoses();
+		assertEquals(d.actualWeeklyDose(result), 40.0);
+//		for (int i = 0; i < result.length; ++i)
+//			assertEquals(result[i], 0);
 	}
-	
-
 	
 }
