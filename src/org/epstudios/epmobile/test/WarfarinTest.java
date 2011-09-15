@@ -23,17 +23,17 @@ import org.epstudios.epmobile.Warfarin;
 
 public class WarfarinTest extends TestCase {
 	public void testgetDoseFromPercentage() {
-		double newDose = Warfarin.getNewDoseFromPercentage(-.2, 14.0);
+		double newDose = Warfarin.getNewDoseFromPercentage(-.2, 14.0, true);
 		assertEquals(11.0, newDose);
-		newDose = Warfarin.getNewDoseFromPercentage(-.15, 14.0);
+		newDose = Warfarin.getNewDoseFromPercentage(-.15, 14.0, true);
 		assertEquals(12.0, newDose);
-		newDose = Warfarin.getNewDoseFromPercentage(-.05, 14.0);
+		newDose = Warfarin.getNewDoseFromPercentage(-.05, 14.0, true);
 		assertEquals(13.0, newDose);
-		newDose = Warfarin.getNewDoseFromPercentage(+.05, 14.0);
+		newDose = Warfarin.getNewDoseFromPercentage(+.05, 14.0, true);
 		assertEquals(15.0, newDose);
-		newDose = Warfarin.getNewDoseFromPercentage(+.15, 14.0);
+		newDose = Warfarin.getNewDoseFromPercentage(+.15, 14.0, true);
 		assertEquals(16.0, newDose);
-		newDose = Warfarin.getNewDoseFromPercentage(+.20, 14.0);
+		newDose = Warfarin.getNewDoseFromPercentage(+.20, 14.0, true);
 		assertEquals(17.0, newDose);
 		
 	}

@@ -140,7 +140,7 @@ public class DoseCalculatorTest extends TestCase {
 		double result[] = d.weeklyDoses();
 		assertEquals(d.actualWeeklyDose(result), 40.0);
 		d.setTabletDose(2.0);
-		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(-.2, 14.0));
+		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(-.2, 14.0, true));
 		result = d.weeklyDoses();
 		assertEquals(1.0, result[DoseCalculator.SUN]);
 		assertEquals(0.5, result[DoseCalculator.MON]);
@@ -149,7 +149,7 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(1.0, result[DoseCalculator.THU]);
 		assertEquals(0.5, result[DoseCalculator.FRI]);
 		assertEquals(1.0, result[DoseCalculator.SAT]);
-		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.05, 14.0));
+		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.05, 14.0, true));
 		result = d.weeklyDoses();
 		assertEquals(1.0, result[DoseCalculator.SUN]);
 		assertEquals(1.5, result[DoseCalculator.MON]);
@@ -158,7 +158,7 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(1.0, result[DoseCalculator.THU]);
 		assertEquals(1.0, result[DoseCalculator.FRI]);
 		assertEquals(1.0, result[DoseCalculator.SAT]);
-		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.2, 14.0));
+		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.2, 14.0, true));
 		result = d.weeklyDoses();
 		assertEquals(1.0, result[DoseCalculator.SUN]);
 		assertEquals(1.5, result[DoseCalculator.MON]);
@@ -168,7 +168,7 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(1.5, result[DoseCalculator.FRI]);
 		assertEquals(1.0, result[DoseCalculator.SAT]);
 		d.setTabletDose(2.5);
-		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.05, 17.5));
+		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.05, 17.5, true));
 		result = d.weeklyDoses();
 		assertEquals(1.0, result[DoseCalculator.SUN]);
 		assertEquals(1.5, result[DoseCalculator.MON]);
@@ -178,7 +178,7 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(1.0, result[DoseCalculator.FRI]);
 		assertEquals(1.0, result[DoseCalculator.SAT]);
 		d.setTabletDose(5.0);
-		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.2, 35.0));
+		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.2, 35.0, true));
 		result = d.weeklyDoses();
 		assertEquals(1.0, result[DoseCalculator.SUN]);
 		assertEquals(1.5, result[DoseCalculator.MON]);
@@ -187,7 +187,7 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(1.0, result[DoseCalculator.THU]);
 		assertEquals(1.5, result[DoseCalculator.FRI]);
 		assertEquals(1.0, result[DoseCalculator.SAT]);
-		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(-.05, 35.0));
+		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(-.05, 35.0, true));
 		result = d.weeklyDoses();
 		assertEquals(1.0, result[DoseCalculator.SUN]);
 		assertEquals(0.5, result[DoseCalculator.MON]);
@@ -197,7 +197,7 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(1.0, result[DoseCalculator.FRI]);
 		assertEquals(1.0, result[DoseCalculator.SAT]);
 		d.setTabletDose(7.5);
-		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(-.2, 52.5));
+		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(-.2, 52.5, true));
 		result = d.weeklyDoses();
 		assertEquals(1.0, result[DoseCalculator.SUN]);
 		assertEquals(0.5, result[DoseCalculator.MON]);
@@ -206,7 +206,7 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(1.0, result[DoseCalculator.THU]);
 		assertEquals(0.5, result[DoseCalculator.FRI]);
 		assertEquals(1.0, result[DoseCalculator.SAT]);
-		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.05, 52.5));
+		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(.05, 52.5, true));
 		result = d.weeklyDoses();
 		assertEquals(1.0, result[DoseCalculator.SUN]);
 		assertEquals(1.5, result[DoseCalculator.MON]);
