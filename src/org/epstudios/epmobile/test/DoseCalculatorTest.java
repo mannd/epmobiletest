@@ -47,15 +47,15 @@ public class DoseCalculatorTest extends TestCase {
 	public void testActualWeeklyDose() {
 		DoseCalculator d = new DoseCalculator(2.5, 30);
 		double doses[] = {1, 2, 2, 3.5, 7 };
-		assertEquals(d.actualWeeklyDose(doses), 38.75);
+		assertEquals(38.75, d.actualWeeklyDose(doses));
 		double doses2[] = {1, 1, 1};
-		assertEquals(d.actualWeeklyDose(doses2), 7.5);
+		assertEquals(7.5, d.actualWeeklyDose(doses2));
 	}
 	
 	public void testRealDoses() {
 		DoseCalculator d = new DoseCalculator(5.0, 40.0);
 		double result[] = d.weeklyDoses();
-		assertEquals(d.actualWeeklyDose(result), 40.0);
+		assertEquals(40.0, d.actualWeeklyDose(result));
 		// some tests from predefined tables in references
 		d.setTabletDose(2.0);
 		d.setWeeklyDose(11.0);
@@ -138,7 +138,7 @@ public class DoseCalculatorTest extends TestCase {
 	public void testCalculatedRealDoses() {
 		DoseCalculator d = new DoseCalculator(5.0, 40.0);
 		double result[] = d.weeklyDoses();
-		assertEquals(d.actualWeeklyDose(result), 40.0);
+		assertEquals(40.0, d.actualWeeklyDose(result));
 		d.setTabletDose(2.0);
 		d.setWeeklyDose(Warfarin.getNewDoseFromPercentage(-.2, 14.0, true));
 		result = d.weeklyDoses();
