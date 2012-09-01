@@ -14,6 +14,9 @@ public class CycleLengthCalculatorTest extends TestCase {
 		assertEquals(1091, CycleLength.calculate(55));
 		// should round 1132.075 down
 		assertEquals(1132, CycleLength.calculate(53));
-
+		// test rounding mode -- it looks like it is by default UP, not
+		// HALF_EVEN
+		assertEquals(6, Math.round(5.5));
+		assertEquals(5, Math.round(4.5));
 	}
 }
