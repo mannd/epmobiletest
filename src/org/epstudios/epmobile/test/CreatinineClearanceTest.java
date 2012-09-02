@@ -14,21 +14,32 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */   
+ */
 
 package org.epstudios.epmobile.test;
 
 import junit.framework.TestCase;
+
 import org.epstudios.epmobile.CreatinineClearance;
 
 public class CreatinineClearanceTest extends TestCase {
 	public void testCalculate() {
-		assertEquals(0, CreatinineClearance.calculate(true, 0, 0, 0));
-		assertEquals(0, CreatinineClearance.calculate(true, 140, 0, 0));
-		assertEquals(58, CreatinineClearance.calculate(true, 77, 65, 0.98));
-		assertEquals((int) (0.85 * 58), CreatinineClearance.calculate(false, 77, 65, 0.98));
-		// next one tests for round off, precise answer is 47.79, should round to 48
-		assertEquals(48, CreatinineClearance.calculate(true, 77, 65, 1.19));
-		
+		assertEquals(0, CreatinineClearance.calculate(true, 0, 0, 0, false));
+		assertEquals(0, CreatinineClearance.calculate(true, 140, 0, 0, false));
+		assertEquals(58,
+				CreatinineClearance.calculate(true, 77, 65, 0.98, false));
+		assertEquals((int) (0.85 * 58),
+				CreatinineClearance.calculate(false, 77, 65, 0.98, false));
+		// next one tests for round off, precise answer is 47.79, should round
+		// to 48
+		assertEquals(48,
+				CreatinineClearance.calculate(true, 77, 65, 1.19, false));
+		// test microMol/L units
+		assertEquals(56, CreatinineClearance.calculate(true, 77, 65, 90, true));
+		assertEquals(48, CreatinineClearance.calculate(false, 77, 65, 90, true));
+		assertEquals(47.5,
+				CreatinineClearance.calculateDouble(false, 77, 65, 90, true),
+				0.1);
+
 	}
 }
