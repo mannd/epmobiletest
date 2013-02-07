@@ -14,11 +14,12 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */   
+ */
 
 package org.epstudios.epmobile.test;
 
 import junit.framework.TestCase;
+
 import org.epstudios.epmobile.Warfarin;
 
 public class WarfarinTest extends TestCase {
@@ -35,17 +36,17 @@ public class WarfarinTest extends TestCase {
 		assertEquals(16.0, newDose);
 		newDose = Warfarin.getNewDoseFromPercentage(+.20, 14.0, true);
 		assertEquals(17.0, newDose);
-		
+
 	}
-	
+
 	public void testWeeklyDoseIsSane() {
 		assertTrue(Warfarin.weeklyDoseIsSane(15.0, 2.0));
 		assertTrue(Warfarin.weeklyDoseIsSane(15.0, 2.5));
-		assertFalse(Warfarin.weeklyDoseIsSane(15.0, 5.0));
+		assertTrue(Warfarin.weeklyDoseIsSane(15.0, 5.0));
 		assertFalse(Warfarin.weeklyDoseIsSane(0.0, 2.0));
 		assertTrue(Warfarin.weeklyDoseIsSane(10.1, 2.0));
 		assertFalse(Warfarin.weeklyDoseIsSane(6.0, 2.0));
 		assertFalse(Warfarin.weeklyDoseIsSane(80.0, 7.5));
 	}
-	
+
 }

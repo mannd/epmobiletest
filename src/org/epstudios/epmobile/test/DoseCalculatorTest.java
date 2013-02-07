@@ -14,44 +14,32 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */   
+ */
 
 package org.epstudios.epmobile.test;
 
 import junit.framework.TestCase;
+
 import org.epstudios.epmobile.DoseCalculator;
 import org.epstudios.epmobile.Warfarin;
 
 public class DoseCalculatorTest extends TestCase {
-	public void testWeeklyDosesZero() {
-		DoseCalculator d = new DoseCalculator(0, 0);
-		double[] result = d.weeklyDoses();
-		assertTrue(resultIsZero(result));
-	}
-	
 
-	
 	public void testWeeklyDosesEqual() {
 		DoseCalculator d = new DoseCalculator(5, 35);
 		double[] result = d.weeklyDoses();
 		for (int i = 0; i < result.length; ++i)
 			assertEquals(1.0, result[i]);
 	}
-	
-	public void testTabletDoseTooHigh() {
-		DoseCalculator d = new DoseCalculator(10, 20);
-		double[] result = d.weeklyDoses();
-		assertTrue(resultIsZero(result));
-	}
-	
+
 	public void testActualWeeklyDose() {
 		DoseCalculator d = new DoseCalculator(2.5, 30);
-		double doses[] = {1, 2, 2, 3.5, 7 };
+		double doses[] = { 1, 2, 2, 3.5, 7, 0, 0 };
 		assertEquals(38.75, d.actualWeeklyDose(doses));
-		double doses2[] = {1, 1, 1};
+		double doses2[] = { 1, 1, 1, 0, 0, 0, 0 };
 		assertEquals(7.5, d.actualWeeklyDose(doses2));
 	}
-	
+
 	public void testRealDoses() {
 		DoseCalculator d = new DoseCalculator(5.0, 40.0);
 		double result[] = d.weeklyDoses();
@@ -134,7 +122,7 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(1.0, result[DoseCalculator.FRI]);
 		assertEquals(1.0, result[DoseCalculator.SAT]);
 	}
-	
+
 	public void testCalculatedRealDoses() {
 		DoseCalculator d = new DoseCalculator(5.0, 40.0);
 		double result[] = d.weeklyDoses();
@@ -215,15 +203,14 @@ public class DoseCalculatorTest extends TestCase {
 		assertEquals(1.0, result[DoseCalculator.THU]);
 		assertEquals(1.0, result[DoseCalculator.FRI]);
 		assertEquals(1.0, result[DoseCalculator.SAT]);
-		
+
 	}
-	
+
 	private Boolean resultIsZero(double[] result) {
 		double num = 0.0;
 		for (int i = 0; i < result.length; ++i)
 			num = num + result[i];
 		return num == 0.0;
 	}
-	
 
 }
