@@ -42,4 +42,12 @@ public class IbwCalculatorTest extends TestCase {
 
 	}
 
+	public void testOverWeight() {
+		double ibw = 100.0;
+		double actualWeight = 130.1;
+		assertTrue(IbwCalculator.isOverweight(ibw, actualWeight));
+		actualWeight = 129.9;
+		assertFalse(IbwCalculator.isOverweight(ibw, actualWeight));
+	}
+
 }
