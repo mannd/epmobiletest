@@ -35,6 +35,10 @@ public class IbwCalculatorTest extends TestCase {
 		ibw = 64.49;
 		assertEquals(IbwCalculator.adjustedBodyWeight(ibw, actualWeight), 82.5,
 				0.1);
+		// test when actual body weight less than ideal body weight
+		actualWeight = 47.6;
+		assertEquals(IbwCalculator.adjustedBodyWeight(ibw, actualWeight), 47.6,
+				0.1);
 
 	}
 
