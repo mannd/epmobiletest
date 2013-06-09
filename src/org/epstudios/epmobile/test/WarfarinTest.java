@@ -45,8 +45,8 @@ public class WarfarinTest extends TestCase {
 		assertTrue(Warfarin.weeklyDoseIsSane(15.0, 5.0));
 		assertFalse(Warfarin.weeklyDoseIsSane(0.0, 2.0));
 		assertTrue(Warfarin.weeklyDoseIsSane(10.1, 2.0));
-		assertFalse(Warfarin.weeklyDoseIsSane(6.0, 2.0));
-		assertFalse(Warfarin.weeklyDoseIsSane(80.0, 7.5));
+		assertTrue(Warfarin.weeklyDoseIsSane(6.0, 2.0));
+		assertTrue(Warfarin.weeklyDoseIsSane(80.0, 7.5));
 	}
 
 }
