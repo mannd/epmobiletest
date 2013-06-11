@@ -50,4 +50,13 @@ public class IbwCalculatorTest extends TestCase {
 		assertFalse(IbwCalculator.isOverweight(ibw, actualWeight));
 	}
 
+	public void testUnderHeight() {
+		double height = 59.9;
+		assertTrue(IbwCalculator.isUnderHeight(height));
+		height = 60.0;
+		assertTrue(IbwCalculator.isUnderHeight(height));
+		height = 60.1;
+		assertFalse(IbwCalculator.isUnderHeight(height));
+	}
+
 }
