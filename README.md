@@ -1,5 +1,6 @@
 ## Description
-Unit tests for EP Mobile.
+Unit tests for EP Mobile.  Note that as of Apr 3, 2016 these tests have
+been moved into the main epmobile repository.
 
 ## License
 Copyright 2011 [EP Studios, Inc.](http://www.epstudiossoftware.com)
